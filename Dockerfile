@@ -1,7 +1,7 @@
 # Build stage
 FROM node:lts-alpine as build
 
-WORKDIR /var/www/html/vue3-docker
+WORKDIR /app
 
 COPY package*.json ./
 

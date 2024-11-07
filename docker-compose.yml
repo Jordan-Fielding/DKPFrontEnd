@@ -8,5 +8,5 @@ services:
     ports:
       - '2000:2000'
     volumes:
-      - .:/var/www/html/vue3-docker
-      - "/var/www/html/vue3-docker/node_modules"
+      - .:/app
+      - "/app/node_modules"
