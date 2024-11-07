@@ -6,7 +6,7 @@ services:
     env_file:
       - .env
     ports:
-      - '4000:3000'
+      - '2000:3000'
     volumes:
       - .:/var/www/html/vue3-docker
       - "/var/www/html/vue3-docker/node_modules"
