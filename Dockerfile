@@ -1,16 +1,12 @@
-# Build stage
-FROM node:lts-alpine as build
-
+FROM node:16    
 WORKDIR /app
+# install vite globally
+RUN npm install -g vite
+# copy all filtes
+COPY . .    
+# install all deps
+RUN yarn install
 
-COPY package*.json ./
-
-RUN npm install
-
-COPY . .
-
-RUN npm run dev
-
-EXPOSE 5173
-
-CMD ["npm", "run", "start"]
+# vite default port
+EXPOSE 5173    
+CMD ["yarn", "run", "dev"]
