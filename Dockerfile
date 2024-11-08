@@ -1,15 +1,15 @@
-FROM node:lts-alpine
+FROM node:12.2.0-alpine
+
+# set working directory
 WORKDIR /app
-# copy all filtes
-COPY package*.json ./   
-# install all deps
+
+# add `/app/node_modules/.bin` to $PATH
+ENV PATH /app/node_modules/.bin:$PATH
+
+# install and cache app dependencies
+COPY package.json /app/package.json
 RUN npm install
+RUN npm install @vue/cli@3.7.0 -g
 
-# copy project files and folders to the current working directory (i.e. 'app' folder)
-COPY . .
-
-RUN npm run dev
-
-# vite default port
-EXPOSE 5173    
-CMD [ "npm", "run", "dev" ]
+# start app
+CMD ["npm", "run", "dev"]
