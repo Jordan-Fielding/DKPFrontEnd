@@ -1,7 +1,7 @@
 FROM node:lts-alpine
 WORKDIR /app
 # copy all filtes
-COPY package*.json ./   
+COPY package*.json ./app   
 # install all deps
 RUN npm install
 
