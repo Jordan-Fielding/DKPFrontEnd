@@ -4,10 +4,13 @@ services:
     build:
       dockerfile: dockerfiles/Dev.Dockerfile
     volumes:
-      - <path-to-your-project>/vue_app:/vue_app
+      - DKPFrontEnd:/vue_app
     ports:
-      - "8080:8080"
+      - "5173:5173"
   vue_app_prod:
     image: earthenlynx/vue_app:production
     ports:
-      - "80:80"
+      - "5174:5174"
+volumes:
+  DKPFrontEnd:
+    external: true
