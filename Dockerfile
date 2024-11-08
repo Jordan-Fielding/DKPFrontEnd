@@ -1,9 +1,12 @@
-FROM node:lts-alpine as build  
+FROM node:lts-alpine
 WORKDIR /app
 # copy all filtes
-COPY . .    
+COPY package*.json ./   
 # install all deps
 RUN npm install
+
+# copy project files and folders to the current working directory (i.e. 'app' folder)
+COPY . .
 
 RUN npm run dev
 
