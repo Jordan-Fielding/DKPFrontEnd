@@ -5,7 +5,7 @@ services:
     container_name: "DKPFrontEnd"
     env_file:
       - .env
-    Expose: '5173'
+    expose: '5173'
     volumes:
       - .:/app
       - "/app/node_modules"
