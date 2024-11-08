@@ -5,8 +5,8 @@ RUN npm install -g vite
 # copy all filtes
 COPY . .    
 # install all deps
-RUN yarn install
+RUN npm install
 
 # vite default port
 EXPOSE 5173    
-CMD ["yarn", "run", "dev"]
+CMD ["npm", "run", "dev"]

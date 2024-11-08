@@ -5,8 +5,8 @@ services:
     container_name: "DKPFrontEnd"
     env_file:
       - .env
-    expose: 
-      - '5173'
+    ports:
+      - '5173:5173'
     volumes:
       - .:/app
       - "/app/node_modules"
