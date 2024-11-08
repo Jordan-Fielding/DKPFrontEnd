@@ -1,12 +1,18 @@
 version: "3.8"
 services:
   frontend:
-    build: .
-    container_name: "vue3-docker"
-    env_file:
-      - .env
-    ports:
-      - '5173:5173'
+    image: app
+    build:
+    context: .
+    env_file: ".env"
     volumes:
-      - .:/app
-      - "/app/node_modules"
+       - '.:/app'
+       - /app/node_modules/ 
+    networks:
+      - common
+    expose:
+      - 5173
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.services.app.loadbalancer.server.port=5173"
+      - "traefik.http.routers.app.rule=Host(`example.com`)"
