@@ -5,7 +5,7 @@ COPY . .
 # install all deps
 RUN npm install
 
-RUN npm run
+RUN npm run dev
 
 # vite default port
 EXPOSE 5173    
