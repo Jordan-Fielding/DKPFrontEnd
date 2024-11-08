@@ -1,4 +1,4 @@
-FROM node:16    
+FROM node:lts-alpine as build  
 WORKDIR /app
 # copy all filtes
 COPY . .    
