@@ -1,18 +1,13 @@
 version: "3.8"
 services:
   frontend:
-    image: app
-    build:
-    context: .
-    env_file: ".env"
+    build: .
+    container_name: "DKPFrontEnd"
+    env_file:
+      - .env
+    Expose: '5174'
     volumes:
-       - '.:/app'
-       - /app/node_modules/ 
+      - .:/app
+      - "/app/node_modules"
     networks:
       - common
-    expose:
-      - 5173
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.services.app.loadbalancer.server.port=5173"
-      - "traefik.http.routers.app.rule=Host(`example.com`)"
